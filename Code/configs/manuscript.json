@@ -1,0 +1,44 @@
+{
+  "seed": 42,
+  "data": {
+    "expected_counts": {"train": 28, "val": 7, "test": 9},
+    "target_size": [512, 512],
+    "crop_bottom": 0,
+    "mask_mode": "red_on_black"
+  },
+  "augmentation": {
+    "enabled": true,
+    "horizontal_flip_probability": 0.5,
+    "vertical_flip_probability": 0.5,
+    "rotate_90": true
+  },
+  "model": {"pretrained": true},
+  "training": {
+    "epochs": 50,
+    "batch_size": 2,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "num_workers": 0,
+    "alpha": 0.3,
+    "beta": 0.7,
+    "selection_threshold": 0.5
+  },
+  "prediction": {
+    "method": "single",
+    "threshold": 0.5,
+    "hysteresis_low": 0.35,
+    "hysteresis_high": 0.6
+  },
+  "postprocess": {
+    "bnd_th": 0.15,
+    "bnd_close": 5,
+    "bnd_dilate": 1,
+    "big_area": 1200,
+    "seed_erode": 1,
+    "seed_min_dist": 5,
+    "seed_peak_th": 0.32,
+    "w_dist": 0.92,
+    "w_bnd": 0.08,
+    "min_instance_area": 60
+  }
+}
